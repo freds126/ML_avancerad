@@ -1,3 +1,2 @@
-venv/
-
-__pycache__/
+mlvenv/
+.ipynb_checkpoints/*
