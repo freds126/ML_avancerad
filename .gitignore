@@ -1,5 +1,6 @@
 mlvenv/
 .ipynb_checkpoints/*
 *.png
-
+*.pdf
+*.html
 
