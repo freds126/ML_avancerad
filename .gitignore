@@ -4,3 +4,5 @@ mlvenv/
 *.pdf
 *.html
 *.zip
+votewatch/
+__MACOSX/
