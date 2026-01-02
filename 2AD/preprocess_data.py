@@ -18,6 +18,16 @@ def is_RCV_or_voted_docs(file):
         return "RCV"
     elif "Voted docs" in file:
         return "Voted docs"
+    
+def read_pickled_files(file):
+    df = pd.read_pickle(file + ".pkl")
+    return df
+
+def pickle_xsl_files(filesRCV):
+
+    for file in filesRCV:
+        df = read_excel_to_df("votewatch/" + file)
+        df.to_pickle("pickled_data/" + file + ".pkl")
 
 
 
@@ -33,10 +43,6 @@ if __name__ == "__main__":
         file8
     ]
 
-    # WebisteEpID (1), Country(6), EPG(8) -- from codebook
-    # cols 11 - 6211 are votes
-    usecols = "A, F, H, K:XFD"
-   
    # all files (if needed)
     all_files = {file: is_RCV_or_voted_docs(file) for file in file_names}
 
@@ -45,8 +51,4 @@ if __name__ == "__main__":
     for file in all_files:
         if all_files[file] == "RCV":
             filesRCV.append(file)
-
-
-    for file in filesRCV:
-        df = read_excel_to_df("votewatch/" + file)
-        df.to_pickle("pickled_data/" + file + ".pkl")
+    
